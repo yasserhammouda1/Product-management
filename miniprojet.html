@@ -1,0 +1,186 @@
+<!DOCTYPE html>   
+<html lang="en">   
+<head>   
+    <meta charset="UTF-8">   
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <script src="miniprojet.js"></script> 
+    <title>Sales Managment</title>   
+    <style>    
+body {  
+    font-family: 'Arial', sans-serif;  
+    margin: 0;  
+    padding: 0;  
+    background-color: #f4f4f4;  
+    display: flex;  
+    flex-direction: column;  
+    align-items: center;  
+    justify-content: flex-start;  
+}  
+
+h1, h2 {  
+    color: #333;  
+    text-align: center;  
+}  
+h1:hover{
+    text-shadow: 0px 0px 5cap grey;
+}
+
+form {  
+    background-color: #fff;  
+    border: 1px solid #ddd;  
+    padding: 20px;  
+    margin: 10px;  
+    width: 300px;  
+    transition: box-shadow 0.3s, border-radius 0.3s;
+}  
+form:hover{
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 50px;
+}
+
+
+input[type=text], input[type=email], input[type=date] {  
+    width: 100%;  
+    padding: 8px;  
+    margin: 6px 0;  
+    display: inline-block;  
+    border: 1px solid #ccc;  
+    border-radius: 4px;  
+    box-sizing: border-box;  
+}  
+
+input[type=submit] {  
+    width: 100%;  
+    background-color: #4CAF50;  
+    color: white;  
+    padding: 14px 20px;  
+    margin: 8px 0;  
+    border: none;  
+    border-radius: 4px;  
+    cursor: pointer;  
+    transition: border-radius 0.3s;
+}  
+
+input[type=submit]:hover {  
+    background-color: #45a049;  
+    border-radius: 20px;
+}  
+
+label {  
+    margin-top: 10px;  
+    display: block;  
+}  
+
+    </style> 
+</head>   
+<body>   
+      
+    <h1 class="f">Sales Managment</h1>   
+    
+    <form action="pentasi.php" method="POST" class="f f_1"> 
+        <h2>Add a Customer:</h2>  
+        <label for="nom_c">name:</label><br>   
+        <input type="text" id="nom_c" name="nom_c"><br>   
+        <label for="address_c">address:</label><br>   
+        <input type="text" id="address_c" name="address_c"><br>   
+        <label for="email_c">address email:</label><br>   
+        <input type="email" id="email_c" name="email_c"><br>   
+        <label for="nu_phone">phone number</label><br>   
+        <input type="text" id="nu_phone" name="nu_phone"><br><br>   
+        <input type="submit" value=" Add" name="addco" id="but " class="in">   
+    </form>    
+    <form action="pentasi.php" method="POST" class="f f_2">   
+        <h2>Add a Product :</h2>  
+        <label for="descri_p">product's name</label><br>   
+        <input type="text" id="nom_pro" name="nom_pro"><br>   
+        <label for="descri_p">description</label><br>   
+        <input type="text" id="descri_p" name="descri_p"><br>   
+        <label for="prix">price</label><br>   
+        <input type="text" id="prix" name="prix"><br>   
+        <label for="cate_p">category</label><br>   
+        <input type="text" id="cate_p" name="cate_p"><br><br>   
+        <input type="submit" value="Add" name="addpro" id="but" class="in">   
+    </form>  
+    <form action="pentasi.php" method="POST" class="f f_5">   
+        <h2>Add A commande:</h2>   
+        <label for="nom_c">customer's name :</label><br>   
+        <input type="text" id="nom_co" name="nom_co"><br>   
+        <label for="email_c">address :</label><br>   
+        <input type="text" id="address_co" name="address_cos"><br>   
+        <label for="nu_phone">product's name :</label><br>   
+        <input type="text" id="no_product" name="no_product"><br>   
+        <label for="address_c">Date :</label><br>  
+        <input type="date" id="date" name="data_c"><br><br>   
+        <label for="Quentité">Quantity :</label><br>   
+        <input type="text" id="Quentité" name="Quentité_c"><br><br>   
+        <input type="submit" value="Add" name="addcommande" id="but" class="in">   
+    </form>  
+    <form action="pentasi.php" method="POST" class="f f_3">   
+        <h2>Delete a Customer :</h2>  
+        <label for="id_c">Customer's name : </label><br>   
+        <input type="text" id="id_c" name="nom_c_de"><br><br>
+<input onclick="checker()"type="submit" value="Delete" name="delet_c" id="del" class="in">   
+    </form>   
+    
+    <form action="pentasi.php" method="POST" class="f f_4">   
+        <h2>Delete a product</h2>   
+        <label for="id_p">Product's ID</label><br>   
+        <input type="text" id="id_p" name="id_p"><br><br>   
+        <input onclick="checker()" type="submit" value="Delete" name="delet_p" id="del" class="in">   
+    </form>     
+    <form action="pentasi.php" method="POST" class="f f_6"> 
+        <h2>Search for undelivered orders :</h2>   
+        <label for="nom de client">customer's name :</label><br>   
+        <input type="text" id="nom_li" name="nom_li"><br><br>   
+        <input type="submit" value="Search" name="cherche" id="but" class="in">   
+    </form>   
+    <div id="result"></div>  
+    <form action="pentasi.php" method="POST">  
+        <h2>Catalog sales over a given period:</h2>  
+        <label for="catalogue">Catalog's name : </label><br>  
+        <input type="text" id="nom_li" name="nom_cat"><br>  
+        <label for="Starting from">Starting from:</label><br>  
+        <input type="date" id="date" name="data_cat_s"><br>  
+        <label for="To">To:</label><br>  
+        <input type="date" id="date" name="data_cat_f"><br><br>  
+        <input type="submit" value="See Result" name="result_cat" id="but" class="in" >  
+    </form>  
+    <div id="result_cata"></div>  
+    <form action="pentasi.php" method="post">  
+        <h2>Update a Customer's informations :</h2>   
+        <input type="hidden" name="id_c" value="ID_OF_CUSTOMER_TO_UPDATE">  
+        <label for="nom_c">customer's name:</label>  
+        <input type="text" id="nom_c" name="nom_c">  
+        <label for="address_c">address :</label>  
+        <input type="text" id="address_c" name="address_c">  
+        <label for="email_c">email :</label>  
+        <input type="email" id="email_c" name="email_c">  
+        <label for="nu_phone">phone numbre :</label>  
+        <input type="text" id="nu_phone" name="nu_phone">  
+        <input type="submit" name="update_c" value="Update" id="but" class="in">  
+    </form>  
+    <form action="pentasi.php" method="post" id="myElement">  
+        <h2>Update a Product's informations :</h2>   
+        <input type="hidden" name="id_c" value="ID_OF_product_TO_UPDATE">  
+        <label for="nom_c">product's name :</label>  
+        <input type="text" id="nom_p" name="nom_p">  
+        <label for="address_c">product's description :</label>  
+        <input type="text" id="descri_p" name="descri_p">  
+        <label for="prix">price</label><br>   
+        <input type="text" id="prix" name="prix"><br>  
+        <label for="categorie">category :</label>  
+        <input type="text" id="categorie" name="cate_p">  
+        <input type="submit" name="update_p" value="Update" id="but" class="in">  
+    </form>       
+</body>   
+<script>
+function checker() {
+    var confirmation = confirm("Are You Sure!!!");
+    if (confirmation === false) {
+        event.preventDefault(); 
+    }
+    
+}
+</script>
+</html>
